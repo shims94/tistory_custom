@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" id="hELLO" x-data="{ dark: TTDARK, loading: true }" x-init="setTimeout(() => loading = false, 100)" lang="ko">
+<html class="scroll-smooth" id="hELLO" x-data="{ loading: true }" x-init="setTimeout(() => loading = false, 100)" lang="ko">
 
   <head>
     <script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
@@ -53,15 +53,6 @@
         hljs: '[##_var_hljs_##]',
         hljsDark: '[##_var_hljs-dark_##]'
       }
-    </script>
-    <script>
-      if (!('TTDARK' in localStorage)) {
-        localStorage.TTDARK = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
-      }
-
-      window.TTDARK = localStorage.TTDARK === 'Y'
-
-      document.documentElement.classList.toggle('dark', TTDARK)
     </script>
     <script defer src="./images/vendor.0ef4f513e09155b0841e.js"></script>
     <script defer src="./images/app.0ef4f513e09155b0841e.js"></script>
@@ -125,7 +116,7 @@
       </div>
     </div>
     <s_t3>
-      <div class="pl-0 break-all <s_if_var_sidebar>xl:pl-64</s_if_var_sidebar>" x-data="{ sidebar: false }">
+      <div class="pl-0 break-all <s_if_var_sidebar>xl:pl-64</s_if_var_sidebar>" x-data="{ sidebar: false }" >
         <main class="pb-14 lg:pb-18 relative" id="main">
           <s_cover_group>
             <div class="flex flex-col">
@@ -626,15 +617,15 @@
                     <div id="sidebar-nav-wrap">
                       <div class="flex justify-between">
                         <a href="https://ma-to.tistory.com/">
-                          <img src="./images/sidebar_home.png" alt="홈" />
+                          <img class="isbtn" src="./images/sidebar_home.png" alt="홈" />
                           <div class="nav-img-text text-h-400">홈</div>
                         </a>
-                        <a href="">
-                          <img src="./images/sidebar_search.png" alt="검색" />
+                        <a id="nav-search-btn">
+                          <img class="isbtn" src="./images/sidebar_search.png" alt="검색" />
                           <div class="nav-img-text text-h-400">검색</div>
                         </a>
                         <a href="https://ma-to.tistory.com/guestbook">
-                          <img src="./images/sidebar_guest.png" alt="방명록" />
+                          <img class="isbtn" src="./images/sidebar_guest.png" alt="방명록" />
                           <div class="nav-img-text text-h-400">방명록</div>
                         </a>
                       </div>
@@ -656,22 +647,29 @@
                     </div>
                   </div>
                 </div>
-              </s_sidebar_element>
-              <s_sidebar_element><!-- 검색모달-->
-                <div class="sidebar-element">
-                  <div class="search-wrap">
-                    <s_search>
-                      <div class="flex items-center gap-x-3 border-box px-4 py-3 text-h-600">
-                        <label for="search">
-                          <span class="text-hidden">검색</span>
-                        </label>
-                        <input class="text-sm text-overflow-hidden border-none outline-none search-input" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
-                        <i class="text-sm fa-solid fa-magnifying-glass" onclick="[##_search_onclick_submit_##]"></i>
-                      </div>
-                    </s_search>
+                <!-- 검색모달-->
+                <div id="search-modal">
+                    <p class="isbtn" id="exit_btn">닫기</p>
+                    <div class="text-h-600 searchbar-wrap">
+                      <label for="search">
+                        <span class="text-hidden">검색</span>
+                      </label>
+                      <i class="fa-solid fa-magnifying-glass isbtn" onclick="[##_search_onclick_submit_##]"></i>
+                      <input class="text-sm text-overflow-hidden border-none outline-none search-input" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
+                    </div>
+                  <!-- 태그부분 -->
+                  <div class="modal-tag-wrap">
+                      <s_random_tags>
+                        <div class="modal-tag-item">
+                          <a class="[##_tag_class_##]" href="[##_tag_link_##]">
+                            <i class="fa fa-tag"></i>
+                            <p>[##_tag_name_##]</p>
+                          </a>
+                        </div>
+                      </s_random_tags>
                   </div>
                 </div>
-              </s_sidebar_element>
+
               <s_sidebar_element><!-- 카테고리-->
                 <div class="sidebar-element">
                   <div id="category" x-data="category">[##_category_list_##]</div>
@@ -763,6 +761,8 @@
                 </div>
               </s_sidebar_element>
             </s_sidebar>
+
+
             <div class="sidebar-element">
               <div class="text-h-400" id="copyright">
                 <div class="flex justify-center">
@@ -797,6 +797,30 @@
         </div>
       </div>
     </s_t3>
+    <!-- 검색모달 -->
+    <script>
+    function openSearchModal() {
+        // 클릭된 링크에 해당하는 search-wrap에 클래스를 추가
+        var modal = document.getElementById('search-modal');
+        modal.classList.add('modal-open');
+        console.log("modal open");
+      }
+      function closeSearchModal() {
+        var modal = document.getElementById('search-modal');
+        if (modal.classList.contains('modal-open')) {
+          modal.classList.remove('modal-open');
+          console.log("modal close");
+        }
+      }
+      var main = document.getElementById('main');
+      var nav_search_btn = document.getElementById('nav-search-btn');
+      var exit_btn = document.getElementById('exit_btn');
+
+      
+      nav_search_btn.addEventListener('click', openSearchModal);
+      main.addEventListener('click', closeSearchModal);
+      exit_btn.addEventListener('click', closeSearchModal);
+    </script>
   </body>
 
 </html>
