@@ -633,10 +633,6 @@
                           <img src="./images/sidebar_search.png" alt="검색" />
                           <div class="nav-img-text text-h-400">검색</div>
                         </a>
-                        <a href="">
-                          <img src="./images/sidebar_gmail.png" alt="Gmail" />
-                          <div class="nav-img-text text-h-400">연락</div>
-                        </a>
                         <a href="https://ma-to.tistory.com/guestbook">
                           <img src="./images/sidebar_guest.png" alt="방명록" />
                           <div class="nav-img-text text-h-400">방명록</div>
@@ -650,30 +646,30 @@
               <!-- 사이드 항목 -->
                 <div class="sidebar-element">
                   <div class="overflow-hidden flex justify-between" id="counter">
-                    <div>
-                      <div class="text-left">
-                        <div class="title">전체</div>
-                        <div class="count">[##_count_total_##]</div>
-                      </div>
+                    <div class="guest_count">
+                      <div class="title">전체</div>
+                      <div class="count">[##_count_total_##]</div>
                     </div>
-                    <div class="flex gap-x-2 text-right">
-                      <div>
-                        <div class="title">오늘</div>
-                        <div class="count">[##_count_today_##]</div>
-                      </div>
-                      <div>
-                        <div class="title">어제</div>
-                        <div class="count">[##_count_yesterday_##]</div>
-                      </div>
+                    <div class="guest_count">
+                      <div class="title">오늘</div>
+                      <div class="count">[##_count_today_##]</div>
                     </div>
                   </div>
                 </div>
               </s_sidebar_element>
-              <s_sidebar_element><!-- 검색-->
+              <s_sidebar_element><!-- 검색모달-->
                 <div class="sidebar-element">
-                  <s_search>
-                    <div class="flex items-center gap-x-3 border-box px-4 py-3 text-h-600"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
-                  </s_search>
+                  <div class="search-wrap">
+                    <s_search>
+                      <div class="flex items-center gap-x-3 border-box px-4 py-3 text-h-600">
+                        <label for="search">
+                          <span class="text-hidden">검색</span>
+                        </label>
+                        <input class="text-sm text-overflow-hidden border-none outline-none search-input" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
+                        <i class="text-sm fa-solid fa-magnifying-glass" onclick="[##_search_onclick_submit_##]"></i>
+                      </div>
+                    </s_search>
+                  </div>
                 </div>
               </s_sidebar_element>
               <s_sidebar_element><!-- 카테고리-->
@@ -769,8 +765,20 @@
             </s_sidebar>
             <div class="sidebar-element">
               <div class="text-h-400" id="copyright">
-                <div class="flex justify-between"><!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
-hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><small><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="https://github.com/pronist">정상우</a>.</small><small>v4.2.1</small></div>
+                <div class="flex justify-center">
+                  <small>
+                    <a href="https://pronist.tistory.com/5">hELLO</a>   스킨 개작 : 
+                    <a href="https://github.com/shims94">심재호</a>
+                  </small>
+                </div>  
+              </div>
+              <div class="text-h-400" id="copyright">
+                <div class="flex justify-center">
+                  <small>
+                    <a href="https://pronist.tistory.com/5">hELLO</a>   스킨 제작 :  
+                    <a href="https://github.com/pronist"> 정상우</a>
+                  </small>
+                </div>
               </div>
             </div>
           </div><template x-teleport="body">

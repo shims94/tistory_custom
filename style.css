@@ -1167,7 +1167,7 @@ video {
 
 .bg-h-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-h-900 {
@@ -3999,50 +3999,71 @@ button {
   display: none
 }
 
+/* 카테고리 글자 수 표시 부분 */
 #sidebar #category .tt_category .link_tit .c_cnt,
 #sidebar #category .tt_category .link_item .c_cnt,
 #sidebar #category .tt_category .link_sub_item .c_cnt {
-  font-size: 0.75rem;
-  line-height: 1rem
+  
+  font-size: 0.9rem;
+  line-height: 1rem;
+  margin-left: .2rem;
+  color: rgba(255, 57, 57, 0.7);
+
+  padding : .3rem;
 }
 
 #sidebar #category .tt_category .link_tit {
   margin-bottom: 1.5rem;
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.25rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity))
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+
+  padding-left: 1.25rem;
 }
 
 .dark #sidebar #category .tt_category .link_tit {
+  padding-left: 1.25rem;
   --tw-text-opacity: 1;
-  color: rgb(244 244 246 / var(--tw-text-opacity))
+  color: rgb(244 244 246 / var(--tw-text-opacity));
 }
 
 #sidebar #category .tt_category ul {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem
+  row-gap: 0.5rem;
+  font-size: 1rem;
+  line-height: 2.2rem
 }
 
 #sidebar #category .tt_category ul li {
-  position: relative
+  box-sizing: border-box;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem; 
+  position: relative;
+}
+
+#sidebar #category .category_list li {
+  
+  padding : .3rem;
+}
+/* 카테고리에 오버시 배경색 넣기 */
+#sidebar #category .category_list li:hover {
+  background-color: rgba(251, 242, 207,0.8);
 }
 
 #sidebar #category .tt_category ul li i {
   position: absolute;
-  right: 0px;
+  right: 1.25rem;
   cursor: pointer;
   font-size: 0.75rem;
-  line-height: 1.25rem
+  line-height: 2.2rem;
 }
 
 #sidebar #category .tt_category .sub_category_list li:first-child {
-  margin-top: 1rem
+  margin-top: 0;
 }
 
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
@@ -4057,24 +4078,14 @@ button {
   display: inline-block;
   font-family: 'Font Awesome 6 Free';
   font-style: normal;
-  line-height: 1
 }
 
-#sidebar #blogmenu ul {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem
-}
 
+/*사이드바 좌우여백설정(기본값은 1.25rem)*/
 #sidebar .sidebar-element {
 
   width: 16rem;
-
-  padding-left: 1.25rem;
-
-  padding-right: 1.25rem
+  box-sizing: border-box;
 }
 
 #sidebar .sidebar-element h2 {
@@ -4107,7 +4118,6 @@ button {
 }
 
 #sidebar .sidebar-element a:not(.link_tit) {
-
   --tw-text-opacity: 1;
 
   color: rgb(153 153 161 / var(--tw-text-opacity))
@@ -4147,21 +4157,6 @@ button {
   --tw-bg-opacity: 1;
   background-color: rgb(230 230 233 / var(--tw-bg-opacity))
 }
-
-.dark #bottom a,
-.dark #bottom button {
-  --tw-bg-opacity: 1;
-  background-color: rgb(41 42 45 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(244 244 246 / var(--tw-text-opacity))
-}
-
-.dark #bottom a:hover,
-.dark #bottom button:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(53 54 56 / var(--tw-bg-opacity))
-}
-
 
 /* 코드 블럭 커스텀 */
 pre code.hljs {
@@ -4221,4 +4216,72 @@ s {
 aside {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 프로필아래 네비버튼 감싸는 부분 */
+#sidebar-nav-wrap {
+  padding : 2px;
+  border : 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* 네비바 이미지+텍스트 */
+#sidebar-nav-wrap a{
+  padding : 5px;
+  margin : 3px;
+  position: relative; /*span위치잡기*/
+}
+
+/* 네비바 텍스트 */
+.nav-img-text{
+  color : nav-img-text;
+  font-size : 0;
+  transition: font-size 0.3s ease; /* 효과 부드럽게 만들기 */
+}
+
+/* 마우스 hover시 글씨 보이게 */
+#sidebar-nav-wrap a:hover{
+  margin-bottom : 0;
+  padding-bottom: 0;
+}
+
+#sidebar-nav-wrap a:hover div{
+  margin-top : 2px;
+  margin-bottom : 0;
+  padding-bottom: 0;
+  font-size: 12px;
+}
+
+/* sidebar 게스트 수 표시 */
+.guest_count {
+  flex : 6;
+  text-align: center;
+}
+
+/* 검색창 */
+.search-wrap {
+  /* 위치 */
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 사이즈 */
+  width: 500px;
+  height: 500px;
+
+  /* 테두리 */
+  padding : 2px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  /* 배경색 */
+  background-color: papayawhip;
+}
+/* 검색내용 입력바 */
+.search-input {
+  background-color: white;
+  width: 100%;
+  height: 32px;
 }
