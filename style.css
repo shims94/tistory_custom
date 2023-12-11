@@ -2984,8 +2984,6 @@ button {
 
   margin-bottom: 1rem;
 
-  font-family: initial;
-
   font-family: LINESeedKR-Rg, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --tw-text-opacity: 1;
@@ -3009,8 +3007,6 @@ button {
   line-height: 1.75rem;
 
   font-weight: 500;
-
-  line-height: 2;
 
   --tw-text-opacity: 1;
 
@@ -4045,13 +4041,16 @@ button {
   position: relative;
 }
 
+/* 카테고리 오버 효과 */
 #sidebar #category .category_list li {
-  
   padding : .3rem;
+  background-color: rgba(251, 242, 207,0);
 }
-/* 카테고리에 오버시 배경색 넣기 */
+
+
 #sidebar #category .category_list li:hover {
   background-color: rgba(251, 242, 207,0.8);
+  transition: background-color 0.5s ease;
 }
 
 #sidebar #category .tt_category ul li i {
