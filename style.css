@@ -4216,3 +4216,9 @@ s {
     padding: 0.2em 0.4em;
     overflow-wrap: anywhere;
 }
+
+/* 사이드바 배경색과 그림자효과 */
+aside {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
