@@ -621,10 +621,33 @@
                   <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
                     <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="[##_blog_link_##]">[##_title_##]</a></div>
                     <div class="text-h-400 text-sm">[##_blogger_##]</div>
+                    <br>
+                    <!-- 사이드바 네비 -->
+                    <div id="sidebar-nav-wrap">
+                      <div class="flex justify-between">
+                        <a href="https://ma-to.tistory.com/">
+                          <img src="./images/sidebar_home.png" alt="홈" />
+                          <div class="nav-img-text text-h-400">홈</div>
+                        </a>
+                        <a href="">
+                          <img src="./images/sidebar_search.png" alt="검색" />
+                          <div class="nav-img-text text-h-400">검색</div>
+                        </a>
+                        <a href="">
+                          <img src="./images/sidebar_gmail.png" alt="Gmail" />
+                          <div class="nav-img-text text-h-400">연락</div>
+                        </a>
+                        <a href="https://ma-to.tistory.com/guestbook">
+                          <img src="./images/sidebar_guest.png" alt="방명록" />
+                          <div class="nav-img-text text-h-400">방명록</div>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </s_sidebar_element>
               <s_sidebar_element><!-- 방문자 수-->
+              <!-- 사이드 항목 -->
                 <div class="sidebar-element">
                   <div class="overflow-hidden flex justify-between" id="counter">
                     <div>
@@ -649,7 +672,7 @@
               <s_sidebar_element><!-- 검색-->
                 <div class="sidebar-element">
                   <s_search>
-                    <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
+                    <div class="flex items-center gap-x-3 border-box px-4 py-3 text-h-600"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
                   </s_search>
                 </div>
               </s_sidebar_element>
